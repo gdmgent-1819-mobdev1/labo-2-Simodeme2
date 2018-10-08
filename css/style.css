@@ -1,0 +1,34 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {
+    padding: 15px 25px;
+    border-radius: 7px;
+}
+
+.card {
+    background-color: #0099e6;
+    max-width: 400px;
+    max-heigh: 700px;
+    color: white;
+    border-radius: 7px;
+    box-shadow: 5px 5px 20px #AAAAAA;
+}
+
+.card h2{
+    text-align: center;
+    padding: 25px;
+}
+
+.card img{
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+}
+
+.card p {
+    margin-left: 50px;
+}
