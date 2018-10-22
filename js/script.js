@@ -56,6 +56,7 @@ function showPerson(id) {
 function checkCount() {
     if(count > 9) {
         count = 0;
+        console.log(count);
         runData()
         showPerson(id);
     } else {
@@ -66,27 +67,46 @@ function checkCount() {
 }
 
 function showList() {
-    
-        populateList("liked"); 
-    
+    populateList("liked");
 };
 
+let liked = [];
+let disliked = [];
+
 function populateList(status) {
-    let person = JSON.parse(localStorage.getItem(id));
+    
+    let person = JSON.parse(localStorage.getItem(id - 1));
+
+    if( localStorage.getItem("liked") ) {
+        let liked = JSON.parse(localStorage.getItem("liked"));
+    } else {
+        let liked = [];
+    }
+
+    if( localStorage.getItem("disliked") ) {
+        let liked = JSON.parse(localStorage.getItem("disliked"));
+    } else {
+        let disliked = [];
+    }
+
     if(person.status === status) {
         likeList.innerHTML += `
             <div class="personList">
                 <h1>${ person.first_name }</h1>
             </div>
         `;
+        liked.push(person);
+        save('liked', liked);
+        console.log(liked);
     } else {
         dislikeList.innerHTML += `
             <div class="personList">
                 <h1>${ person.first_name }</h1>
             </div>  
         `;
+        disliked.push(person);
+        save('disliked', disliked);
     }
-    
 };
 
 function changeStatus(status){
@@ -113,5 +133,41 @@ dislike.addEventListener("click", () => {
 });
 
 window.addEventListener('load', () => {
-    runData(); 
+    runData();
 });
+
+const replace = document.querySelectorAll('.dropzone');
+
+(function () {
+    document.addEventListener('dragstart', dragStart);
+    document.addEventListener('drop', dragDrop);
+    document.addEventListener('dragend', dragEnd, false);
+    document.addEventListener('dragover', dragOver, false);
+  })();
+  
+  function dragStart(e) {
+    e.dataTransfer.setData("text", e.target.id);
+    e.target.style.opacity = .3;
+    e.dataTransfer.dropEffect = "move";
+    console.log('start');
+  } 
+  
+  function dragDrop() {
+    // only drop on dropzones
+    /*if (e.toElement.className === "dropzone") {
+      let data = e.dataTransfer.getData("text");
+      e.target.appendChild(document.getElementById(data));
+      console.log(data);
+    }*/
+    this.appendChild('replace');
+    console.log('drop');
+  }
+
+  function dragEnd(e) {
+    e.target.style.opacity = "";
+    console.log('end');
+  }
+  
+  function dragOver(e) {
+    e.preventDefault();
+  }

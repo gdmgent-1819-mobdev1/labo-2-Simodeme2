@@ -16,7 +16,6 @@ button {
 .card {
     background-color: #0099e6;
     max-width: 400px;
-    max-heigh: 700px;
     color: white;
     border-radius: 7px;
     box-shadow: 5px 5px 20px #AAAAAA;
@@ -37,4 +36,51 @@ button {
 
 .card p {
     margin-left: 50px;
+}
+
+#like {
+    color: green;
+}
+
+#dislike {
+    color: red;
+}
+
+.likedList h1{
+    color: green;
+}
+
+.dislikedList h1{
+    color: red;
+}
+
+#box {
+    width: 400px;
+    height: 700px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+}
+
+#wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+  
+
+.dropzone {
+    width: 450px;
+    height: 750px;
+    float: left;
+    border: 2px dashed #0099e6;
+    margin: 15px;
+}
+
+.like {
+    border: 2px dashed green;
+}
+
+.dislike {
+    border: 2px dashed red;
 }
