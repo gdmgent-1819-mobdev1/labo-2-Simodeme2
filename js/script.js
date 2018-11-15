@@ -152,14 +152,15 @@ const replace = document.querySelectorAll('.dropzone');
     console.log('start');
   } 
   
-  function dragDrop() {
+  function dragDrop(e) {
+    e.preventDefault();
+  
     // only drop on dropzones
-    /*if (e.toElement.className === "dropzone") {
+    if (e.toElement.className === "dropzone") {
       let data = e.dataTransfer.getData("text");
       e.target.appendChild(document.getElementById(data));
       console.log(data);
-    }*/
-    this.appendChild('replace');
+    }
     console.log('drop');
   }
 
@@ -170,4 +171,28 @@ const replace = document.querySelectorAll('.dropzone');
   
   function dragOver(e) {
     e.preventDefault();
+    console.log('over');
   }
+
+
+  // Mapbox
+
+  mapboxgl.accessToken = 
+  "pk.eyJ1Ijoic2ltb2RlbWUyIiwiYSI6ImNqb2dhZGliajA2Mm8zcHM2bnYzaXcyNHgifQ.ku1ga-pHa4P2na52olONjA";
+
+  if ("geolocation" in navigator) {
+    console.log('Works');
+  } else {
+    console.log('Does not work');
+  }
+
+  let map = new mapboxgl.Map({
+    container: 'map', // HTML container id
+    style: 'mapbox://styles/mapbox/streets-v9', // style URL
+    center: [-21.9270884, 64.1436456], // starting position as [lng, lat]
+    zoom: 13
+  });
+
+  let marker = new mapboxgl.Marker()
+    .setLngLat([-21.9270884, 64.1436456])
+    .addTo(map);

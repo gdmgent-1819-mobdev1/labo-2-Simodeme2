@@ -73,14 +73,14 @@ button {
     width: 450px;
     height: 750px;
     float: left;
-    border: 2px dashed #0099e6;
+    border: 3px dashed #0099e6;
     margin: 15px;
 }
 
 .like {
-    border: 2px dashed green;
+    border: 3px dashed green;
 }
 
 .dislike {
-    border: 2px dashed red;
+    border: 3px dashed red;
 }
